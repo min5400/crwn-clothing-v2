@@ -36,6 +36,12 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 
 const clearCartItem = (cartItems, cartItemToRemove) => cartItems.filter((cartItem) => cartItem.id != cartItemToRemove.id);
 
+// Test om LocalStorage toe te passen voor shopping cart
+const loadCartFromLocalStorage = () => {
+    const cartData = localStorage.getItem("cart");
+    return cartData ? JSON.parse(cartData) : [];
+  };
+
 export const CartContext = createContext({
     isCartOpen: false,
     setIsCartOpen: () => {},
@@ -49,11 +55,15 @@ export const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(loadCartFromLocalStorage()); // Load cart data from localStorage
     const [cartCount, setCartCount] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
     useEffect(() => {
+
+        // Update localStorage whenever cartItems change
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+
         const newCartTotal = cartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0)
         setCartTotal(newCartTotal);
     }, [cartItems])
