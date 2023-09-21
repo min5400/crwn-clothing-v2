@@ -7,3 +7,10 @@
         margin: 10px 0;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .sign-up-container {
+        display: inline-block;
+        max-width: 100%;
+    }
+}

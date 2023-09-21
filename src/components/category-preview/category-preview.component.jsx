@@ -17,6 +17,9 @@ const CategoryPreview = ({ title, products }) => {
                     <ProductCard key={product.id} product={product} />
                 ))}
             </div>
+            <h2>
+                <Link className='more' to={title}>See more</Link>
+            </h2>
         </div>
     )
 }

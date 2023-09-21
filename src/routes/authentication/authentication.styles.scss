@@ -4,3 +4,10 @@
     justify-content: space-between;
     margin: 30px auto;
 }
+
+@media screen and (max-width: 768px) {
+    .authentication-container {
+        display: inline-block;
+        max-width: 90%;
+    }
+}
