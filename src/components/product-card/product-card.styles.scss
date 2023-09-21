@@ -48,5 +48,21 @@
         width: 10%;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      /* Adjust styles for screens with a maximum width of 768px */
+      img {
+        height: 90%;
+        width: 100%;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      /* Further adjust styles for screens with a maximum width of 480px */
+      img {
+        height: 90%;
+        width: 100%;
+      }
+    }
   }
   
