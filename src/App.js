@@ -12,10 +12,11 @@ import { checkUserSession } from './store/user/user.action';
 
 const App = () => {
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const dispatch = useDispatch();
     dispatch(checkUserSession());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>
